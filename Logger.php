@@ -1,11 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
+require './vendor/autoload.php';
 
 class Logger
 {
+    private static $instance = null;
+
     public static function get()
     {
-        return new Logger();
+        if (self::$instance == null) {
+            self::$instance = new Logger();
+        }
+
+        return self::$instance;
     }
 
     public function logError($message)
