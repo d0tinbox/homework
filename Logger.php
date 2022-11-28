@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 require './vendor/autoload.php';
 
-class Logger
+use Homework\LoggerInterface;
+
+class Logger implements LoggerInterface
 {
     private static $instance = null;
 
@@ -17,16 +19,16 @@ class Logger
         return self::$instance;
     }
 
-    public function logError($message)
+    public function logError(string $message): void
     {
         $logFile = fopen('application.log', 'w');
         fwrite($logFile, 'ERROR: ' . $message);
         fclose($logFile);
     }
 
-    public function logSuccess($msg)
+    public function logSuccess(string $message): void
     {
         $logFile = fopen('application.log', 'a');
-        fwrite($logFile, 'SUCCESS: ' . $msg);
+        fwrite($logFile, 'SUCCESS: ' . $message);
     }
 }

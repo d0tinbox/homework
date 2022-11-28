@@ -9,6 +9,9 @@
             "email": "cv@left.lv"
         }
     ],
+    "autoload": {
+        "psr-4": {"Homework\\": "./"}
+    },
     "require": {
         "php": "^7.4"
     },
