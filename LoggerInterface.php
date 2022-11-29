@@ -7,23 +7,24 @@ namespace Homework;
 /**
  * Main interface for loggers.
  */
-interface LoggerInterface {
+interface LoggerInterface
+{
 
-	/**
-	 * Add error entity to log.
-	 *
-	 * @param string $message
-	 *
-	 * @return void
-	 */
-	public function logError(string $message): void;
+    /**
+     * Add error entity to log.
+     *
+     * @param string $message
+     *
+     * @return void
+     */
+    public function logError(string $message): void;
 
-	/**
-	 * Add success entity to log.
-	 *
-	 * @param string $message
-	 *
-	 * @return void
-	 */
-	public function logSuccess(string $message): void;
+    /**
+     * Add success entity to log.
+     *
+     * @param string $message
+     *
+     * @return void
+     */
+    public function logSuccess(string $message): void;
 }
