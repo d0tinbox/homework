@@ -4,19 +4,18 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use Homework\Logger\HandlerInterface;
-use Homework\Logger\LoggerInterface;
 use Homework\Logger\AbstractHandler;
-use Homework\Logger\FileHandler;
+use Homework\Logger\LoggerInterface;
+use Homework\Logger\HandlerFactory;
 
 class Logger implements LoggerInterface
 {
     private static $instance = null;
 
-    public static function get(): HandlerInterface
+    public static function get(): AbstractHandler
     {
         if (self::$instance == null) {
-            self::$instance = new FileHandler();
+            self::$instance = HandlerFactory::get();
         }
 
         return self::$instance;
