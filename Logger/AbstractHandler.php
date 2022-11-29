@@ -9,13 +9,27 @@ namespace Homework\Logger;
  */
 abstract class AbstractHandler
 {
-    public function logError(string $message): void
+    /**
+     * Add error entity to log.
+     *
+     * @param string $message
+     *
+     * @return boolean
+     */
+    public function logError(string $message): bool
     {
-        $this->log(Status::ERROR, $message);
+        return $this->log(Status::ERROR, $message);
     }
 
-    public function logSuccess(string $message): void
+    /**
+     * Add success entity to log.
+     *
+     * @param string $message
+     *
+     * @return boolean
+     */
+    public function logSuccess(string $message): bool
     {
-        $this->log(Status::SUCCESS, $message);
+        return $this->log(Status::SUCCESS, $message);
     }
 }

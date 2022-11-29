@@ -4,22 +4,28 @@ declare(strict_types=1);
 
 namespace Homework\Logger;
 
+/**
+ * Console logger handler.
+ */
 class ConsoleHandler extends AbstractHandler implements HandlerInterface
 {
-    private string $LOG_FILE;
+    use ValidationTrait;
 
-    public function __construct()
-    {
-        $this->LOG_FILE = 'php://stdout';
-    }
-
+    /**
+     * Add log entity to console.
+     *
+     * @param Status $type
+     * @param string $message
+     *
+     * @return boolean
+     */
     public function log(Status $type, string $message): bool
     {
-        if (trim($message) === '') {
+        if (!$this->validate($message)) {
             return false;
         }
 
-        $file = fopen($this->LOG_FILE, 'a');
+        $file = fopen('php://stdout', 'a');
 
         fwrite($file, sprintf("%s: %s\n", $type->getLabel(), $message));
 

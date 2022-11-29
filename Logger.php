@@ -5,10 +5,9 @@ declare(strict_types=1);
 require 'vendor/autoload.php';
 
 use Homework\Logger\AbstractHandler;
-use Homework\Logger\LoggerInterface;
 use Homework\Logger\HandlerFactory;
 
-class Logger implements LoggerInterface
+class Logger
 {
     private static $instance = null;
 
@@ -19,15 +18,5 @@ class Logger implements LoggerInterface
         }
 
         return self::$instance;
-    }
-
-    public function logError(string $message): void
-    {
-        self::$instance->logError($message);
-    }
-
-    public function logSuccess(string $message): void
-    {
-        self::$instance->logSuccess($message);
     }
 }

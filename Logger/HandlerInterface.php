@@ -9,5 +9,13 @@ namespace Homework\Logger;
  */
 interface HandlerInterface
 {
+    /**
+     * Add entity to log.
+     *
+     * @param Status $type
+     * @param string $message
+     *
+     * @return boolean
+     */
     public function log(Status $type, string $message): bool;
 }
