@@ -1,0 +1,22 @@
+{
+    "name": "catsand/homework",
+    "description": "Test task for Mobily",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "catsAND",
+            "email": "cv@left.lv"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"Homework\\": "./"}
+    },
+    "require": {
+        "php": "^8.1",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
