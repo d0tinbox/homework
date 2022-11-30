@@ -13,16 +13,8 @@ class FileHandler extends AbstractHandler implements HandlerInterface
 {
     use ValidationTrait;
 
-    /**
-     * Path to log file.
-     *
-     * @var string
-     */
-    private string $LOG_FILE;
-
-    public function __construct()
+    public function __construct(private string $LOG_FILE = __DIR__ . '/../application.log')
     {
-        $this->LOG_FILE = __DIR__ . '/../application.log';
     }
 
     /**
